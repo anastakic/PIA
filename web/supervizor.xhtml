@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <h:head>
+        <title>Supervizor</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="dizajn.css"/>
+    </h:head>
+    <h:body style="background-image: url(resources/background.jpg); filter: brightness(105%) contrast(105%); background-position: 0% 0%; background-repeat: no-repeat; background-attachment: fixed">
+        <p:growl showDetail="true" sticky="true" />
+
+        <img src="resources/logo2.png" id="logo" width="30%" style="margin-left: 35%; filter: brightness(150%) grayscale(20%) contrast(140%);" alt="logo1"/>
+       <h:form style="border: none">
+            
+           <p:panel id="supervizorpanel" header="Zanimljiva geografija: zahtevi" style="background-color: rgba(3,3,10,0.8);min-width: 1000px; width: 100%; border: none;">
+            
+            <br></br>
+            
+            <p:dataTable value="#{supervizorController.zahtevi}" var="zahtev" style="background: rgba(0,0,0,0); min-height: 100px;" resizableColumns="true" >
+                <p:autoUpdate rendered="@all" ></p:autoUpdate>
+                <p:column>
+                    <f:facet name="header">Država</f:facet>
+                    <p:selectBooleanCheckbox value="#{zahtev.odobrenoDrzava}"></p:selectBooleanCheckbox>
+                    <p:outputLabel style="padding-left: 5px;" value="#{zahtev.drzava}"></p:outputLabel>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Grad</f:facet>
+                    <p:selectBooleanCheckbox value="#{zahtev.odobrenoGrad}"></p:selectBooleanCheckbox>                    
+                    <p:outputLabel style="padding-left: 5px;" value="#{zahtev.grad}" ></p:outputLabel>                    
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Planina</f:facet>
+                    <p:selectBooleanCheckbox value="#{zahtev.odobrenoPlanina}"></p:selectBooleanCheckbox>
+                    <p:outputLabel style="padding-left: 5px;" value="#{zahtev.planina}"></p:outputLabel>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Reka</f:facet>
+                    <p:selectBooleanCheckbox value="#{zahtev.odobrenoReka}"></p:selectBooleanCheckbox>
+                    <p:outputLabel style="padding-left: 5px;" value="#{zahtev.reka}"></p:outputLabel>
+                </p:column>
+                
+                <p:column>
+                    <f:facet name="header">Jezero</f:facet>
+                    <p:selectBooleanCheckbox value="#{zahtev.odobrenoJezero}"></p:selectBooleanCheckbox>
+                    <p:outputLabel style="padding-left: 5px;" value="#{zahtev.jezero}" ></p:outputLabel>
+                </p:column>
+                
+                <p:column>
+                    <f:facet name="header">Biljka</f:facet>
+                    <p:selectBooleanCheckbox value="#{zahtev.odobrenoBiljka}"></p:selectBooleanCheckbox>
+                    <p:outputLabel style="padding-left: 5px;" value="#{zahtev.biljka}" ></p:outputLabel>
+                </p:column>
+                
+                <p:column>
+                    <f:facet name="header">Životinja</f:facet>
+                    <p:selectBooleanCheckbox value="#{zahtev.odobrenoZivotinja}"></p:selectBooleanCheckbox>
+                    <p:outputLabel style="padding-left: 5px;"  value="#{zahtev.zivotinja}" ></p:outputLabel>
+                </p:column>
+                
+                <p:column width="15%">
+                    <f:facet name="header">Muzička grupa</f:facet>
+                    <p:selectBooleanCheckbox value="#{zahtev.odobrenoMuzickaGrupa}"></p:selectBooleanCheckbox>
+                    <p:outputLabel style="padding-left: 5px;" value="#{zahtev.muzickagrupa}" ></p:outputLabel>
+                </p:column>
+            
+                
+           
+                
+                <p:column width="9%">
+                    <h:commandButton value="snimi" action="#{supervizorController.snimi(zahtev)}"
+                                     style="border-radius: 5px;
+                                     text-align: center; font-weight: bold; width: 100%; cursor: pointer; 
+                                     background-color: #81c5f3; color: white"  >               
+                    </h:commandButton>
+                </p:column>        
+            </p:dataTable>
+
+        </p:panel>
+        <p:poll interval="3" update="supervizorpanel"></p:poll> 
+        </h:form>
+        <br/>
+   
+        <h:form>
+        <p:panel id="anagrampanel" header="Anagram: dodavanje pojmova" style="background-color: rgba(3,3,10,0.8);position: absolute; margin-left:2%; min-width: 600px; width: 55%; border: none;">
+            <p:outputLabel rendered="#{supervizorController.anagramDis}" style="color: #{supervizorController.anagramBoja ? 'green':'red'}" value="#{supervizorController.porukaAnagram}"></p:outputLabel>
+            
+            <p:panelGrid styleClass="ui-panelgrid-blank ui-fluid" columns="6" style="width: 100%">
+                <p:outputLabel style="color: white" value="Zagonetka: "></p:outputLabel>
+                <p:inputText value="#{supervizorController.zagonetka}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+                
+                <p:outputLabel style="color: white" value="Rešenje: "></p:outputLabel>
+                <p:inputText value="#{supervizorController.resenje}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+                
+                <p:commandButton style="width: 50px; background-color: #81c5f3;" action="#{supervizorController.dodajAnagram()}" update="anagrampanel" value="&#10004;"></p:commandButton>
+                
+            </p:panelGrid>
+        </p:panel>
+        </h:form>
+        
+        
+        <h:form>
+        <p:panel id="vesanjepanel" header="Igra vešanje: dodavanje pojmova" style="background-color: rgba(3,3,10,0.8); width: 35%; margin-left: 62%;position: absolute; min-width: 300px; border: none;">
+            <p:outputLabel rendered="#{supervizorController.vesanjeDis}" style="color: #{supervizorController.vesanjeBoja ? 'green':'red'}" value="#{supervizorController.porukaVesanje}"></p:outputLabel>
+            
+            <p:panelGrid styleClass="ui-panelgrid-blank ui-fluid" columns="6" style="width: 100%">
+                <p:outputLabel style="color: white" value="Pojam: "></p:outputLabel>
+                <p:inputText value="#{supervizorController.rec}" required="true" requiredMessage="Polje je obavezno."></p:inputText>
+              
+                <p:commandButton style="width: 50px; background-color: #81c5f3;" action="#{supervizorController.dodajVesanje()}" update="vesanjepanel" value="&#10004;"></p:commandButton>
+            </p:panelGrid>
+            
+        </p:panel>
+        </h:form>
+   
+        <h:form>
+            <p:panel id="peharpanel" header="Pehar: dodavanje pojmova" style="background-color: rgba(3,3,10,0.8);margin-left:2%; position: absolute;margin-top: 150px; min-width: 1000px; text-align: center; border: none;">
+                <p:outputLabel rendered="#{supervizorController.peharDis}" style="color: #{supervizorController.peharBoja ? 'green':'red'}" value="#{supervizorController.porukaPehar}"></p:outputLabel>
+                
+                <p:panelGrid styleClass="ui-panelgrid-blank ui-fluid" columns="4" style="width: 100%">
+                    
+                    <p:outputLabel style="color: white;" value="Pitanje:"></p:outputLabel>
+                    <p:inputText style="width: 450px" value="#{supervizorController.pitanje1}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Odgovor (9 slova):"></p:outputLabel>
+                    <p:inputText  style="width: 250px"  value="#{supervizorController.odgovor1}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+                    
+                    <p:outputLabel style="color: white" value="Pitanje:"></p:outputLabel>
+                    <p:inputText style="width: 450px"  value="#{supervizorController.pitanje2}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Odgovor (8 slova):"></p:outputLabel>
+                    <p:inputText  style="width: 225px"  value="#{supervizorController.odgovor2}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Pitanje:"></p:outputLabel>
+                    <p:inputText style="width: 450px"  value="#{supervizorController.pitanje3}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Odgovor (7 slova):"></p:outputLabel>
+                    <p:inputText  style="width: 200px"  value="#{supervizorController.odgovor3}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Pitanje:"></p:outputLabel>
+                    <p:inputText style="width: 450px"  value="#{supervizorController.pitanje4}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Odgovor (6 slova):"></p:outputLabel>
+                    <p:inputText  style="width: 175px"  value="#{supervizorController.odgovor4}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Pitanje:"></p:outputLabel>
+                    <p:inputText style="width: 450px"  value="#{supervizorController.pitanje5}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Odgovor (5 slova):"></p:outputLabel>
+                    <p:inputText  style="width: 150px"  value="#{supervizorController.odgovor5}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Pitanje:"></p:outputLabel>
+                    <p:inputText style="width: 450px"  value="#{supervizorController.pitanje6}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Odgovor (4 slova):"></p:outputLabel>
+                    <p:inputText  style="width: 125px"  value="#{supervizorController.odgovor6}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Pitanje:"></p:outputLabel>
+                    <p:inputText  style="width: 450px" value="#{supervizorController.pitanje7}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Odgovor (3 slova):"></p:outputLabel>
+                    <p:inputText  style="width: 100px"  value="#{supervizorController.odgovor7}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Pitanje:"></p:outputLabel>
+                    <p:inputText  style="width: 450px" value="#{supervizorController.pitanje8}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Odgovor (4 slova):"></p:outputLabel>
+                    <p:inputText  style="width: 125px"  value="#{supervizorController.odgovor8}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Pitanje:"></p:outputLabel>
+                    <p:inputText style="width: 450px"  value="#{supervizorController.pitanje9}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Odgovor (5 slova):"></p:outputLabel>
+                    <p:inputText  style="width: 150px"  value="#{supervizorController.odgovor9}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Pitanje:"></p:outputLabel>
+                    <p:inputText style="width: 450px"  value="#{supervizorController.pitanje10}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Odgovor (6 slova):"></p:outputLabel>
+                    <p:inputText  style="width: 175px"  value="#{supervizorController.odgovor10}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Pitanje:"></p:outputLabel>
+                    <p:inputText style="width: 450px"  value="#{supervizorController.pitanje11}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Odgovor (7 slova):"></p:outputLabel>
+                    <p:inputText  style="width: 200px"  value="#{supervizorController.odgovor11}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Pitanje:"></p:outputLabel>
+                    <p:inputText style="width: 450px"  value="#{supervizorController.pitanje12}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Odgovor (8 slova):"></p:outputLabel>
+                    <p:inputText  style="width: 225px"  value="#{supervizorController.odgovor12}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Pitanje:"></p:outputLabel>
+                    <p:inputText  style="width: 450px" value="#{supervizorController.pitanje13}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    <p:outputLabel style="color: white" value="Odgovor (9 slova):"></p:outputLabel>
+                    <p:inputText  style="width: 250px"  value="#{supervizorController.odgovor13}" required="true" requiredMessage="Sva polja su obavezna."></p:inputText>
+
+                    
+                </p:panelGrid>
+                <br/>
+                <p:commandButton style="width: 350px; background-color: #81c5f3;" action="#{supervizorController.dodajPehar()}" update="peharpanel" value="Sačuvaj pehar &#10004;"></p:commandButton>
+            </p:panel>
+            <p:poll interval="3" listener="#{supervizorController.resetujPehar()}" autoStart="#{supervizorController.peharDis}" update="peharpanel"></p:poll>
+        </h:form>
+        
+        <h:form>
+        <p:commandLink id="nazad" value="Log out" style="color: #1ba3ff; position: absolute; margin-top: 830px; margin-bottom: 50px" action="#{loginController.logout()}" />
+        <br></br>
+        <br></br>
+       <br></br>
+        <br></br>
+        </h:form>   
+        
+        <br></br>
+        <br></br>
+       <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        
+            
+        
+    </h:body>
+</html>
+

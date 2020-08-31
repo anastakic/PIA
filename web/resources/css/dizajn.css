@@ -1,0 +1,297 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20-Aug-2019, 10:38:52
+    Author     : Ana
+*/
+
+
+body {
+    background-color: #092132;
+    
+}
+
+h1, h2 {
+    font-size: 3em;
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: 3px 2px #21749C;
+}
+
+
+.ui-outputlabel {
+    font-weight: bold;
+}
+
+.ui-toolbar.ui-widget-header {
+    background-color: #21749C;
+}
+
+/* Application */
+
+#adminform{
+    
+    margin: auto;
+}
+
+.brisiDugme{
+    border-radius: 3px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    background-color: whitesmoke;
+}
+
+
+.app-form {
+    max-width: 480px;
+    margin: auto;
+}
+.app-formm {
+    
+    margin: auto;
+}
+
+
+
+
+.app-panel {
+    max-width: 480px;
+    margin: auto;
+    border:none;
+    background-color: rgba(3,3,15,0.5);
+    
+}
+
+.app-panell {
+    max-width: 750px;
+    margin: auto;
+    border:none;
+    background-color: rgba(3,3,15,0.5);
+    
+}
+
+
+.app-panel-takmicar {
+    border:none;
+    margin: auto;
+    background-color: rgba(3,3,15,0.5);
+    
+}
+
+.app-panel-centered {
+    max-width: 960px;
+    margin: auto;
+    border-style: solid;
+    border-color: #21749C;
+    border-width: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#game {
+    height: 250px;
+    margin: auto;
+    position: relative;
+    width: 220px;
+}
+
+#game .player {
+    left: 53px;
+    position: absolute;
+    top: 90px;
+    height: 130px;
+    width: 75px;
+}
+
+.player .playerModel {
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.playerModel .head {
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #fff inset;
+    height: 35px;
+    margin: auto;
+    width: 35px;
+}
+
+.playerModel .trup{
+    background-color: #fff;
+    height: 45px;
+    margin-left: 36px;
+    width: 2px;
+    position: absolute;
+}
+
+.playerModel .body {
+    background-color: #fff;
+    height: 45px;
+    margin: auto;
+    width: 2px;
+}
+
+.playerModel .body:before, .playerModel .body:after {
+    background-color: #fff;
+    content: "";
+    display: inline-block;
+    height: 30px;
+    position: absolute;
+    width: 2px;
+}
+
+
+.playerModel .body:before {
+    left: 27px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.playerModel .body:after {
+    right: 26px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.playerModel .foot {
+    background-color: #fff;
+    height: 3px;
+    margin: auto;
+    width: 2px;
+}
+
+
+
+.playerModel .foot:before, .playerModel .foot:after {
+    background-color: #fff;
+    content: "";
+    display: inline-block;
+    height: 40px;
+    position: absolute;
+    width: 2px;
+}
+
+
+.playerModel .foot:before {
+    left: 30px;
+    transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+}
+
+.playerModel .foot:after {
+    right: 29px;
+    transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+}
+
+
+
+#game .stang3 {
+    background-color: #fff;
+    height: 20px;
+    left: 90px;
+    position: absolute;
+    top: 70px;
+    width: 2px;
+}
+
+#game .stang2 {
+    background-color: #fff;
+    border-radius: 5px 0 0 5px;
+    bottom: 180px;
+    height: 5px;
+    position: absolute;
+    right: 45px;
+    width: 95px;
+}
+
+#game .stang2:before {
+    background-color: #fff;
+    content: "";
+    left: 50px;
+    height: 5px;
+    position: absolute;
+    top: 17px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    width: 50px;
+}
+
+
+
+#game .stang {
+    background-color: #fff;
+    bottom: 0;
+    height: 180px;
+    margin: auto;
+    position: absolute;
+    right: 45px;
+    width: 5px;
+}
+
+
+#game .ground {
+    background-color: #fff;
+    border-radius: 5px;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    width: 220px;
+}
+
+
+/*
+
+
+.b {
+    background: #eee;
+    background: linear-gradient(#fff, #eee);
+    background: -webkit-linear-gradient(top, #fff, #eee);
+    background: -ms-linear-gradient(top, #fff, #eee);
+    background: -moz-linear-gradient(top, #fff, #eee);
+    background: -o-linear-gradient(top, #fff, #eee);
+    box-shadow: 1px 1px 1px 0 #ccc;
+    display: inline-block;
+    margin: 2px;
+    padding: 8px;
+    text-align: center;
+    width: 25px;
+}
+
+.b[data="false"], .b[data="true"] {
+    color: #555;
+    font-weight: bold;
+}
+
+.b[data="true"] {
+    background: #9f9;
+}
+
+.b[data="false"] {
+    background: #aaa;
+}
+
+.anim {
+    animation: button 3s infinite;
+    -webkit-animation: button 3s infinite;
+}
+
+*/

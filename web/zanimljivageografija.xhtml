@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+        <title>Igra ZANIMLJIVA GEOGRAFIJA</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="dizajn.css"/>
+    </h:head>
+      
+    <h:body style="background-image: url(resources/background.jpg); filter: brightness(105%) contrast(105%); background-position: 0% 0%; background-repeat: no-repeat; background-attachment: fixed">
+        
+        
+        <p:growl showDetail="true" sticky="true"/>
+       
+        <div style="position: fixed;  margin-left: 0%; width: 30%">
+            <img src="resources/logo2.png" width="70%" style="filter: brightness(150%) grayscale(40%) contrast(140%); min-width: 200px; margin-top: 15px; margin-left: 15%" alt="logo1"/>
+            <br></br>    
+            <br></br>  
+                    
+            <p:panel style="min-width: 200px; background-color: rgba(6,6,18,0.6); border: none">
+                
+                <h:form class="app-form">
+                    
+                    <p:outputLabel value="Account: " style="color: white; font-size: large; font-family: inherit; font-weight: bold; margin-top: 10px; margin-bottom: 10px"></p:outputLabel>
+                    <p:outputLabel value="#{user.username}" style="color: #5188b8; -webkit-text-stroke: 0.5px white;
+                                   font-size: xx-large; font-family: inherit; font-weight: bolder; margin-top: 10px; margin-bottom: 10px; margin-left: 10px;"></p:outputLabel>
+                    <br></br>    
+                    
+                        <hr style="border-style: inset; border-width: 0.5px; "> </hr>
+                            
+                       
+                        <div style="text-align: right">
+                            <p:outputLabel value="#{user.ime} #{user.prezime}"  style="color: white; font-size: large; width: 100% "/>
+                        </div>    
+
+                            <hr style="border-style: inset; border-width: 0.5px; color: grey"></hr>
+                            
+                            <p:panelGrid styleClass="ui-panelgrid-blank ui-fluid" style="padding: 10px; width: 100%; background-color: rgba(3,3,15,0.5);" >
+                                    
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="3" style="color: white; font-size: large; font-weight: bold">Današnji rezultat:</p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                
+                                
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra ANAGRAM</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{anagramController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                    
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">Igra MOJ BROJ</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{mojBrojController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra VEŠANJA</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{petxpetController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">Igra ZANIMLJIVA GEOGRAFIJA</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{zanimljivaGeografijaController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra PEHAR</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{peharController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">U K U P N O:</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{petxpetController.brPoenaPoslePetxpet}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                
+                            
+                            </p:panelGrid>
+                            
+                </h:form> 
+            
+                            <br></br>
+                            <br></br>
+                            
+                            <div style="padding-top: 1rem">
+                                <h:form class="app-form">
+        
+                                    <p:commandLink id="nazad" value="Log out" style="color: #1ba3ff;" action="#{loginController.logout()}" />
+           
+                                </h:form>
+                            </div>
+                            <br></br>
+                            <br></br>
+            </p:panel>
+                <br></br>
+                            <br></br>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        <script>
+        const second = 1000;
+        let countDown = 120;
+        
+        if(#{mojBrojController.dis}){
+            let x = setInterval(function (){
+                let distance = countDown--;
+                document.getElementById("promena").height = distance*4.5;
+
+                if(distance===0){
+                    clearInterval(x);
+                }       
+                }, second);
+            } 
+        </script>
+        
+        
+        <div style="position: fixed; margin-left: 30.25%; width: 70%; min-height:100%; min-width: 900px; ">
+            
+            <p:panel style="min-width: 200px; background-color: rgba(6,6,18,0.5); border: none; padding-top: 50px; padding-left: 15px;">
+               
+                
+                <p:graphicImage url="resources/timer_okvir.png" width="20px" height="540px" style=" filter: opacity(0.7); position: fixed; margin-top: 50px "/>
+                <p:graphicImage id="promena" url="resources/timer_okvir.png" width="20px" height="540px" style=" position: fixed; filter: invert(100%) opacity(0.5);  margin-top: 50px "/>
+                
+                <h:form id="forma" style="margin-top: 50px; min-height: 560px; min-width: 830px; padding-left: 50px;">
+                    <p:outputLabel style="color: white; font-size: xx-large;padding-left: 140px; font-weight: bolder">Z A N I M LJ I V A &ensp; G E O G R A F I J A</p:outputLabel>
+                    <br/><br/>
+                    <p:outputLabel style="color: white; font-size: x-large;padding-left: 320px; font-weight: bolder">NA SLOVO:&ensp; </p:outputLabel>
+                    <p:outputLabel style="color: white; font-size: xx-large; font-weight: bolder" value="#{zanimljivaGeografijaController.slovo}"></p:outputLabel>
+                    
+                    <p:panelGrid id="pojmovi" styleClass="ui-panelgrid-blank ui-fluid" style="text-align: right; margin-top: 50px; font-size: larger" columns="4">
+                        <p:outputLabel style="color: white" value="Država:"></p:outputLabel>
+                        <p:inputText value="#{zanimljivaGeografijaController.drzava}" disabled="#{zanimljivaGeografijaController.dis}" ></p:inputText>
+                        
+                        <p:outputLabel style="color: white" value="Grad:"></p:outputLabel>
+                        <p:inputText value="#{zanimljivaGeografijaController.grad}" disabled="#{zanimljivaGeografijaController.dis}"></p:inputText>
+                        
+                        <p:outputLabel style="color: white" value="Reka:"></p:outputLabel>
+                        <p:inputText value="#{zanimljivaGeografijaController.reka}" disabled="#{zanimljivaGeografijaController.dis}"></p:inputText>
+                        
+                        <p:outputLabel style="color: white" value="Jezero:"></p:outputLabel>
+                        <p:inputText value="#{zanimljivaGeografijaController.jezero}" disabled="#{zanimljivaGeografijaController.dis}"></p:inputText>
+                        
+                        <p:outputLabel style="color: white" value="Planina:"></p:outputLabel>
+                        <p:inputText value="#{zanimljivaGeografijaController.planina}" disabled="#{zanimljivaGeografijaController.dis}"></p:inputText>
+                        
+                        <p:outputLabel style="color: white" value="Biljka:"></p:outputLabel>
+                        <p:inputText value="#{zanimljivaGeografijaController.biljka}" disabled="#{zanimljivaGeografijaController.dis}"></p:inputText>
+                        
+                        <p:outputLabel style="color: white" value="Životinja:"></p:outputLabel>
+                        <p:inputText value="#{zanimljivaGeografijaController.zivotinja}" disabled="#{zanimljivaGeografijaController.dis}"></p:inputText>
+                        
+                        <p:outputLabel style="color: white" value="Muzička grupa:"></p:outputLabel>
+                        <p:inputText value="#{zanimljivaGeografijaController.muzickagrupa}" disabled="#{zanimljivaGeografijaController.dis}"></p:inputText>
+                        
+                        
+                    </p:panelGrid>
+                    <br></br>
+                    <p:poll interval="120" listener="#{zanimljivaGeografijaController.postaviDis()}" update="forma"></p:poll>
+                    
+                    
+                    <p:commandButton value="Potvrdi" id="btn" action="#{zanimljivaGeografijaController.potvrdi()}" update="forma"
+                                     style="background-color: #206491; margin-left: 79%; width: 20%; margin-top: 80px; 
+                                     text-align: center; color: #FFFFFF; margin-top: 20px; border: none;" disabled="#{zanimljivaGeografijaController.disDugmePotvrdi}"/>
+                    
+                    
+                    <br/>
+                    <p:outputPanel id="poruka" style="padding-top: 30px">
+                        <p:outputLabel style="color: white; position: absolute" value="#{zanimljivaGeografijaController.poruka1}"></p:outputLabel>
+                        <p:outputLabel style="color: white; position: absolute; padding-top: 20px" value="#{zanimljivaGeografijaController.pomPoruka1}"></p:outputLabel>
+                        <p:commandButton value="Sledeća igra" action="#{zanimljivaGeografijaController.sledecaigra()}"
+                                     style="background-color: #206491; margin-top: 50px; 
+                                     text-align: center; color: #FFFFFF;border: none; position: absolute" disabled="#{zanimljivaGeografijaController.dis2}"/>
+                        <p:poll interval="2" listener="#{zanimljivaGeografijaController.cekajSupervizora()}" update="poruka"></p:poll>
+                    </p:outputPanel>
+                    
+                </h:form>           
+                   
+                
+            </p:panel>
+        </div>
+       
+       
+
+    </h:body>
+</html>
+

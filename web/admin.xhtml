@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <h:head>
+        <title>Administrator</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="dizajn.css"/>
+    </h:head>
+    <h:body style="background-image: url(resources/background.jpg); filter: brightness(105%) contrast(105%); background-position: 0% 0%; background-repeat: no-repeat; background-attachment: fixed">
+        <p:growl showDetail="true" sticky="true" />
+
+        <img src="resources/logo2.png" id="logo" width="30%" style="margin-left: 35%; filter: brightness(150%) grayscale(20%) contrast(140%);" alt="logo1"/>
+       <h:form style="border: none">
+            
+           <p:panel id="adminpanel" header="Pristigli zahtevi" style="background-color: rgba(3,3,10,0.7); width: 100%; border: none;">
+            
+            <br></br>
+            
+            <p:dataTable value="#{registrationController.zahtevi}" var="zahtev" style="background: rgba(0,0,0,0); min-height: 100px;" resizableColumns="true" >
+                <p:autoUpdate rendered="@all" ></p:autoUpdate>
+                <p:column>
+                <f:facet name="header">Ime</f:facet>
+                <p:outputLabel value="#{zahtev.ime}"></p:outputLabel>
+            </p:column>
+            <p:column>
+                <f:facet name="header">Prezime</f:facet>
+                <p:outputLabel value="#{zahtev.prezime}" ></p:outputLabel>
+            </p:column>
+                <p:column>
+                <f:facet name="header">Username</f:facet>
+                <p:outputLabel value="#{zahtev.username}"></p:outputLabel>
+            </p:column>
+            <p:column width="18%">
+                <f:facet name="header">E-mail</f:facet>
+                <p:outputLabel value="#{zahtev.email}"></p:outputLabel>
+            </p:column>
+                
+                <p:column width="12%">
+                <f:facet name="header">JMBG</f:facet>
+                <p:outputLabel value="#{zahtev.jmbg}" ></p:outputLabel>
+            </p:column>
+            <p:column>
+                <f:facet name="header">Zanimanje</f:facet>
+                <p:outputLabel value="#{zahtev.zanimanje}" ></p:outputLabel>
+            </p:column>
+            <p:column width="6%">
+                <f:facet name="header">Pol</f:facet>
+                <p:outputLabel value="#{zahtev.pol}" ></p:outputLabel>
+            </p:column>
+            
+            <p:column>
+                <f:facet name="header">Tip</f:facet>
+                <p:outputLabel value="#{zahtev.tip}"></p:outputLabel>
+            </p:column>
+          
+                
+                <p:column width="9%">
+                <h:commandButton value="obrisi" action="#{registrationController.obrisiZahtev(zahtev)}"
+                                 style="border-radius: 5px;
+                                 text-align: center; font-weight: bold; width: 100%; cursor: pointer; 
+                                 background-color: #81c5f3; color: white"  >
+                
+                </h:commandButton>
+            </p:column>
+            <p:column width="9%">
+                <h:commandButton value="snimi" action="#{registrationController.snimi(zahtev)}"
+                                 style="border-radius: 5px;
+                                 text-align: center; font-weight: bold; width: 100%; cursor: pointer; 
+                                 background-color: #81c5f3; color: white"  >               
+                </h:commandButton>
+            </p:column>        
+        </p:dataTable>
+
+        </p:panel>
+        <p:poll interval="5" update="adminpanel"></p:poll> 
+        
+       </h:form>
+        
+        <br/>
+        
+        
+        <h:form>
+        
+        <p:panel id="panelBrDva" header="Biranje igre dana" style="background-color: rgba(3,3,10,0.7); width: 100%; border: none;">
+            <p:outputLabel style="color: #{adminController.greskaDis?'#26f732':'red'}" value="#{adminController.greska}"></p:outputLabel>
+            <p:panelGrid styleClass="ui-panelgrid-blank ui-fluid" columns="4">
+                <p:outputLabel style="color: white" value="Datum:"></p:outputLabel>
+            
+                <p:calendar id="cal" pattern="yyyy-MM-dd" mindate="#{adminController.minDate}" required="true" requiredMessage="Datum je obavezan."
+                            placeholder="za datum" value="#{adminController.datum}"> 
+                    
+                </p:calendar>
+
+                <p:outputLabel style="color: white" value="Anagram: "></p:outputLabel>
+                <p:selectOneMenu style="font-weight: bolder" value="#{adminController.anagram_id}">
+                    <f:selectItems value="#{adminController.anagramList}" var="anagram" itemLabel="#{anagram.zagonetka}:&ensp;#{anagram.resenje}" itemValue="#{anagram.id}"></f:selectItems>
+                </p:selectOneMenu>
+
+                
+
+                <p:outputLabel style="color: white" value="Vešanje: "></p:outputLabel>
+                <p:selectOneMenu style="font-weight: bolder" value="#{adminController.vesanje_id}">
+                    <f:selectItems value="#{adminController.vesanjeList}" var="vesanje" itemLabel="#{vesanje.rec}" itemValue="#{vesanje.id}"></f:selectItems>
+                </p:selectOneMenu>
+            
+                 <p:outputLabel style="color: white" value="Pehar: "></p:outputLabel>
+                <p:selectOneMenu style="font-weight: bolder" value="#{adminController.pehar_id}">
+                    <f:selectItems value="#{adminController.peharList}" var="pehar" 
+                                   itemLabel=" #{pehar.odgovor1} / #{pehar.odgovor2} / #{pehar.odgovor3} / #{pehar.odgovor4} / #{pehar.odgovor5} / #{pehar.odgovor6} / 
+                                   #{pehar.odgovor7} / #{pehar.odgovor8} / #{pehar.odgovor9} / #{pehar.odgovor10} / #{pehar.odgovor11} / 
+                                   #{pehar.odgovor12} / #{pehar.odgovor13}" 
+                                   itemValue="#{pehar.id}"></f:selectItems>
+                </p:selectOneMenu>
+
+                
+            </p:panelGrid>
+            <br/>
+            
+            <p:commandButton value="Sačuvaj igru" action="#{adminController.provera()}" update="panelBrDva">
+                
+            </p:commandButton> 
+            
+            <p:outputLabel style="padding-left: 20px; padding-right: 10px; color: #2da7b7;" value="Igra za ovaj dan je već definisana. Da li želite da je ažurirate?" rendered="#{adminController.prikaziPoruku}"></p:outputLabel>
+            <p:commandButton value="DA" action="#{adminController.azuriraj()}" style="background-color: #2da7b7;" rendered="#{adminController.prikaziPoruku}" update="panelBrDva"></p:commandButton>
+            <p:commandButton value="NE" action="#{adminController.neAzuriraj()}" style="background-color: #2da7b7;" rendered="#{adminController.prikaziPoruku}" update="panelBrDva"></p:commandButton>
+            <br/>  
+        </p:panel>  
+        <p:poll interval="60" listener="#{adminController.osveziListe()}" update="panelBrDva"></p:poll>
+        <br/><br/>
+        </h:form>
+        
+        <h:form>
+        <p:commandLink id="nazad" value="Log out" style="color: #1ba3ff;" action="#{loginController.logout()}" />
+           
+        </h:form>
+        <br></br>
+        <br></br>
+       
+        
+        
+            
+        
+    </h:body>
+</html>
+

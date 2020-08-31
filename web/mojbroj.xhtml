@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+        <title>Igra MOJ BROJ</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="dizajn.css"/>
+    </h:head>
+    
+       
+    
+    
+    <h:body style="background-image: url(resources/background.jpg); filter: brightness(105%) contrast(105%); background-position: 0% 0%; background-repeat: no-repeat; background-attachment: fixed">
+        
+        
+        <p:growl showDetail="true" sticky="true"/>
+       
+        <div style="position: fixed;  margin-left: 0%; width: 30%">
+            <img src="resources/logo2.png" width="70%" style="filter: brightness(150%) grayscale(40%) contrast(140%); min-width: 200px; margin-top: 15px; margin-left: 15%" alt="logo1"/>
+            <br></br>    
+            <br></br>  
+                    
+            <p:panel style="min-width: 200px; background-color: rgba(6,6,18,0.6); border: none">
+                
+                <h:form class="app-form">
+                    
+                    <p:outputLabel value="Account: " style="color: white; font-size: large; font-family: inherit; font-weight: bold; margin-top: 10px; margin-bottom: 10px"></p:outputLabel>
+                    <p:outputLabel value="#{user.username}" style="color: #5188b8; -webkit-text-stroke: 0.5px white;
+                                   font-size: xx-large; font-family: inherit; font-weight: bolder; margin-top: 10px; margin-bottom: 10px; margin-left: 10px;"></p:outputLabel>
+                    <br></br>    
+                    
+                        <hr style="border-style: inset; border-width: 0.5px; "> </hr>
+                            
+                       
+                        <div style="text-align: right">
+                            <p:outputLabel value="#{user.ime} #{user.prezime}"  style="color: white; font-size: large; width: 100% "/>
+                        </div>    
+
+                            <hr style="border-style: inset; border-width: 0.5px; color: grey"></hr>
+                            
+                            <p:panelGrid styleClass="ui-panelgrid-blank ui-fluid" style="padding: 10px; width: 100%; background-color: rgba(3,3,15,0.5);" >
+                                    
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="3" style="color: white; font-size: large; font-weight: bold">Današnji rezultat:</p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                
+                                
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra ANAGRAM</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{anagramController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                    
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">Igra MOJ BROJ</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{mojBrojController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra VEŠANJA</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{petxpetController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">Igra ZANIMLJIVA GEOGRAFIJA</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{zanimljivaGeografijaController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra PEHAR</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{peharController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">U K U P N O:</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{anagramController.brPoenaPosleAnagrama}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                
+                            
+                            </p:panelGrid>
+                            
+                </h:form> 
+            
+                            <br></br>
+                            <br></br>
+                            
+                            <div style="padding-top: 1rem">
+                                <h:form class="app-form">
+        
+                                    <p:commandLink id="nazad" value="Log out" style="color: #1ba3ff;" action="#{loginController.logout()}" />
+           
+                                </h:form>
+                            </div>
+                            <br></br>
+                            <br></br>
+            </p:panel>
+                <br></br>
+                            <br></br>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+    
+        
+        
+        <div style="position: fixed; margin-left: 30.25%; width: 70%; min-height:100%; min-width: 800px; ">
+            
+            <p:panel style="min-width: 200px; background-color: rgba(6,6,18,0.5); border: none; padding-top: 50px; padding-left: px; padding-right: 50px">
+               
+                
+                
+                <h:form id="formaMojBroj" style="margin: auto; ">
+                    <p:panelGrid id="mojbroj" styleClass="ui-panelgrid-blank ui-fluid" style="padding: 10px; width: 100%; margin-top: 40px" >
+                              
+                    <p:row><p:column colspan="7"/></p:row>
+                    <p:row><p:column colspan="7"/></p:row>
+                                
+                    <p:row>
+                        <p:column colspan="7" style="color: white; font-size: xx-large;padding-left: 300px; font-weight: bolder">M O J &ensp; B R O J</p:column>
+                        <p:column></p:column>
+                    </p:row>
+                    
+                    <p:row><p:column colspan="4"/></p:row>
+                    <p:row><p:column colspan="4"/></p:row>
+                    <p:row><p:column colspan="4"/></p:row>
+                    <p:row><p:column colspan="4"/></p:row>
+                    
+                    <p:row style="padding-top: 100px; padding-left: 20px; ">
+                        
+                        <p:column colspan="7" style="color: white;background-color: rgba(255,255,255,0.1); font-size: xx-large; padding-left: 385px; ">
+                            <p:outputLabel style="padding: 10px; border-radius: 4px; border: 1px white;" value="#{mojBrojController.mojBr}"></p:outputLabel>
+                        </p:column>
+                    </p:row>
+                    <p:row><p:column colspan="4"/></p:row>
+                    <p:row><p:column colspan="4"/></p:row>
+                    <p:row><p:column colspan="4"/></p:row>
+                    
+                    <p:row>
+                        <p:column style="color: white; padding-left: 50px; text-align: right;font-size: larger;">
+                            <p:commandButton value="#{mojBrojController.br1}" disabled="#{mojBrojController.br1dis}">
+                                <p:ajax event="click" listener="#{mojBrojController.pritisnutBr1()}" update="mojbroj" />
+                            </p:commandButton>
+                        </p:column>
+                        <p:column style="color: white; text-align: right;font-size: larger;">
+                            <p:commandButton value="#{mojBrojController.br2}" disabled="#{mojBrojController.br2dis}">
+                                <p:ajax event="click" listener="#{mojBrojController.pritisnutBr2()}" update="mojbroj" />
+                                </p:commandButton>
+                        </p:column>
+                        <p:column style="color: white; text-align: right;font-size: larger;">
+                            <p:commandButton value="#{mojBrojController.br3}" disabled="#{mojBrojController.br3dis}">
+                                <p:ajax event="click" listener="#{mojBrojController.pritisnutBr3()}"  update="mojbroj" />
+                                </p:commandButton>
+                        </p:column>
+                        <p:column style="color: white; text-align: right;font-size: larger;">
+                            <p:commandButton value="#{mojBrojController.br4}" disabled="#{mojBrojController.br4dis}">
+                                <p:ajax event="click" listener="#{mojBrojController.pritisnutBr4()}"  update="mojbroj" />
+                                </p:commandButton>
+                        </p:column>
+                        <p:column></p:column>
+                        <p:column style="color: white; padding-left: 10px; text-align: right;font-size: larger;">
+                            <p:commandButton value="#{mojBrojController.br5}" disabled="#{mojBrojController.br5dis}">
+                                <p:ajax event="click" listener="#{mojBrojController.pritisnutBr5()}"  update="mojbroj" />
+                                </p:commandButton>
+                        </p:column>
+                        <p:column style="color: white; padding-left: 10px; text-align: right;font-size: larger;">
+                            <p:commandButton value="#{mojBrojController.br6}" disabled="#{mojBrojController.br6dis}">
+                                <p:ajax event="click" listener="#{mojBrojController.pritisnutBr6()}"  update="mojbroj" />
+                                </p:commandButton>
+                        </p:column>
+                        
+                    </p:row>
+                   
+                    
+                    <p:row>
+                            <p:column style="color: white; padding-left: 55px; padding-top: 20px;text-align: right;font-size: larger;">
+                                <p:commandButton update="izraz" value="#{mojBrojController.plus}" disabled="#{mojBrojController.operacije}">
+                                    <p:ajax event="click" listener="#{mojBrojController.pritisnutoPlus()}" update="mojbroj" />
+                                </p:commandButton>
+                            </p:column>
+                            <p:column style="color: white; text-align: right;padding-top: 20px; font-size: larger;">
+                                <p:commandButton  value="#{mojBrojController.minus}" disabled="#{mojBrojController.operacije}">
+                                    <p:ajax event="click" listener="#{mojBrojController.pritisnutoMinus()}" update="mojbroj" />
+                                </p:commandButton>
+                            </p:column>
+                            <p:column style="color: white; text-align: right;font-size: larger;padding-top: 20px;">
+                                <p:commandButton  value="#{mojBrojController.puta}" disabled="#{mojBrojController.operacije}">
+                                    <p:ajax event="click" listener="#{mojBrojController.pritisnutoPuta()}" update="mojbroj" />
+                                </p:commandButton>
+                            </p:column>
+                            <p:column style="color: white; text-align: right;font-size: larger;padding-top: 20px;">
+                                <p:commandButton  value="#{mojBrojController.podeljeno}" disabled="#{mojBrojController.operacije}">
+                                    <p:ajax event="click" listener="#{mojBrojController.pritisnutoPodeljeno()}" update="mojbroj" />
+                                </p:commandButton>
+                            </p:column>
+                            <p:column style="color: white; text-align: right;font-size: larger;padding-top: 20px;">
+                                <p:commandButton  value="#{mojBrojController.otvZagrada}" disabled="#{mojBrojController.operacije}">
+                                    <p:ajax event="click" listener="#{mojBrojController.pritisnutaOtvZagrada()}" update="mojbroj" />
+                                </p:commandButton>
+                            </p:column>
+                            <p:column style="color: white; text-align: right;padding-right: 75px ;font-size: larger; padding-top: 20px;">
+                                <p:commandButton  value="#{mojBrojController.zatvZagrada}" disabled="#{mojBrojController.operacije}">
+                                    <p:ajax event="click" listener="#{mojBrojController.pritisnutaZatvZagrada()}" update="mojbroj" />
+                                </p:commandButton>
+                            </p:column>
+
+                            <p:column style="color: white; padding-left: 75px; text-align: right;font-size: larger;padding-top: 20px;">
+                                <p:commandButton  value="#{mojBrojController.obrisi}" disabled="#{mojBrojController.operacije}">
+                                    <p:ajax event="click" listener="#{mojBrojController.pritisnutoObrisi()}" update="mojbroj" />
+                                </p:commandButton>
+                            </p:column>   
+                    </p:row>      
+                    
+                    
+                    <p:row>
+                        <p:column colspan="7" style="padding-left: 350px; padding-top: 30px">
+                            <p:commandButton value="STOP" style="width: 120px; height: 30px;" disabled="#{mojBrojController.dis}" update="formaMojBroj">
+                                <p:ajax event="click" listener="#{mojBrojController.generisi()}" update="mojbroj" />    
+                            </p:commandButton>
+                        </p:column>
+                    </p:row>
+                    
+                    
+                    <p:row style="background-color: rgba(255,255,255,0.1); height: 100px; padding-bottom: 20px">
+                        <p:column colspan="7"  style=" padding-left: 20px;">
+                            <p:outputLabel style="padding-left: 130px; position: fixed; font-size: xx-large; color: white" id="izraz" value="#{mojBrojController.izraz}"></p:outputLabel>    
+                        </p:column>
+                    </p:row>
+                    
+                    
+                </p:panelGrid>
+                <p:poll interval="60"  listener="#{mojBrojController.stop()}" update="formaMojBroj" autoStart="#{mojBrojController.dis}"  />    
+                
+                <p:outputLabel id="mojbrojtimer" style="color: white; font-weight: 900; font-size: x-large" value="#{mojBrojController.timerValue}"></p:outputLabel>
+                <p:poll interval="1" listener="#{mojBrojController.timer()}" autoStart="#{mojBrojController.dis}" update="mojbrojtimer"></p:poll>
+                        
+                    
+                <p:commandButton value="Potvrdi" id="btn" action="#{mojBrojController.potvrdi()}" 
+                                     style="background-color: #206491; margin-left: 55%; width: 20%; 
+                                     text-align: center; color: #FFFFFF; margin-top: 80px; border: none;"/>
+                    
+                    
+                </h:form>           
+                       
+                
+            </p:panel>
+        </div>
+       
+       
+
+    </h:body>
+</html>
+

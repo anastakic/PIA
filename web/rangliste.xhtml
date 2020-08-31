@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:pm="http://primefaces.org/mobile">
+    <h:head>
+        
+        <title>Rang liste</title>
+        
+        <h:outputStylesheet library="css" name="dizajn.css"/>
+    </h:head>
+    <h:body style="background-image: url(resources/background.jpg); filter: brightness(105%) contrast(105%); background-position: 0% 0%; background-repeat: no-repeat; background-attachment: fixed; ">
+        <p:growl showDetail="true" sticky="true" />
+
+        <img src="resources/logo2.png" id="logo" width="30%" style="margin-left: 35%; filter: brightness(150%) grayscale(20%) contrast(140%);" alt="logo1"/>
+        <h:form id="formarangliste" style="border: none">
+            <p:commandButton value="Nazad" icon="fa fa-user" ajax="false" action="index?faces-redirect=true" 
+                             style="background-color: #32606a; margin-left: 42%; width: 16%; min-width: 150px; margin-bottom: 20px; text-align: center; color: #FFFFFF; border: none;" />
+            
+            <p:panelGrid columns="2" layout="grid" style="margin-left: 10%; width: 80%"  styleClass="ui-panelgrid-blank ui-fluid" >
+                <p:panel id="ranglistepanel" header="RANG LISTA ZA #{rangListeController.mesecNaziv}" style="background-color: rgba(3,3,10,0.8);min-width: 400px; border: none;">
+
+                <br></br>
+
+                <p:dataTable value="#{rangListeController.rezultatiPoslMesec}"  var="rez" style="background: rgba(0,0,0,0); min-height: 100px;" resizableColumns="true" >
+                    <p:autoUpdate rendered="@all" ></p:autoUpdate>
+                    <p:column style="width: 25px">
+                        <p:outputLabel style="padding-left: 5px;" value="#{rangListeController.rezultatiPoslMesec.indexOf(rez)+1}"></p:outputLabel>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Username</f:facet>
+                        <p:outputLabel style="padding-left: 5px;" value="#{rez.username}"></p:outputLabel>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Poeni</f:facet>
+                        <p:outputLabel style="padding-left: 5px;" value="#{rez.poeni}"></p:outputLabel>
+                    </p:column>
+
+
+
+
+                </p:dataTable>
+
+            </p:panel>
+
+
+            <p:panel id="ranglistepanelDva" header="RANG LISTA #{rangListeController.pre20danaDatum} - #{rangListeController.datum}" style="background-color: rgba(3,3,10,0.8);min-width: 400px;border: none;">
+
+                <br></br>
+
+                <p:dataTable value="#{rangListeController.rezultatiPosl20Dana}" var="rez" style="background: rgba(0,0,0,0); min-height: 100px;" resizableColumns="true" >
+                    <p:autoUpdate rendered="@all" ></p:autoUpdate>
+                    <p:column style="width: 25px;">
+                        <p:outputLabel style="padding-left: 5px;" value="#{rangListeController.rezultatiPosl20Dana.indexOf(rez)+1}"></p:outputLabel>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Username</f:facet>
+                        <p:outputLabel style="padding-left: 5px;" value="#{rez.username}"></p:outputLabel>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Poeni</f:facet>
+                        <p:outputLabel style="padding-left: 5px;" value="#{rez.poeni}"></p:outputLabel>
+                    </p:column>
+
+
+
+
+                </p:dataTable>
+
+            </p:panel>
+            </p:panelGrid>
+            <p:poll interval="120" listener="#{rangListeController.osveziListe()}" update="formarangliste"></p:poll> 
+        
+        
+   
+        
+        
+        </h:form>
+       
+            
+        
+    </h:body>
+      
+</html>
+

@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+        <title>Igra</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="dizajn.css"/>
+    </h:head>
+    
+       
+    
+    
+    <h:body style="background-image: url(resources/background.jpg); filter: brightness(105%) contrast(105%); background-position: 0% 0%; background-repeat: no-repeat; background-attachment: fixed">
+        
+        
+        <p:growl showDetail="true" sticky="true"/>
+       
+        <div style="position: fixed;  margin-left: 0%; width: 30%">
+            <img src="resources/logo2.png" width="70%" style="filter: brightness(150%) grayscale(40%) contrast(140%); min-width: 200px; margin-top: 15px; margin-left: 15%" alt="logo1"/>
+            <br></br>    
+            <br></br>  
+                    
+            <p:panel style="min-width: 200px; background-color: rgba(6,6,18,0.6); border: none">
+                
+                <h:form class="app-form">
+                    
+                    <p:outputLabel value="Account: " style="color: white; font-size: large; font-family: inherit; font-weight: bold; margin-top: 10px; margin-bottom: 10px"></p:outputLabel>
+                    <p:outputLabel value="#{user.username}" style="color: #5188b8; -webkit-text-stroke: 0.5px white;
+                                   font-size: xx-large; font-family: inherit; font-weight: bolder; margin-top: 10px; margin-bottom: 10px; margin-left: 10px;"></p:outputLabel>
+                    <br></br>    
+                    
+                        <hr style="border-style: inset; border-width: 0.5px; "> </hr>
+                            
+                       
+                        <div style="text-align: right">
+                            <p:outputLabel value="#{user.ime} #{user.prezime}"  style="color: white; font-size: large; width: 100% "/>
+                        </div>    
+
+                            <hr style="border-style: inset; border-width: 0.5px; color: grey"></hr>
+                            
+                            <p:panelGrid styleClass="ui-panelgrid-blank ui-fluid" style="padding: 10px; width: 100%; background-color: rgba(3,3,15,0.5);" >
+                                    
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="3" style="color: white; font-size: large; font-weight: bold">Današnji rezultat:</p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                
+                                
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra ANAGRAM</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{anagramController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                    
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">Igra MOJ BROJ</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{mojBrojController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra VEŠANJA</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{petxpetController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">Igra ZANIMLJIVA GEOGRAFIJA</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{zanimljivaGeografijaController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra PEHAR</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{peharController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">U K U P N O:</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{anagramController.brPoenaPosleAnagrama}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                
+                            
+                            </p:panelGrid>
+                            
+                </h:form> 
+            
+                            <br></br>
+                            <br></br>
+                            
+                            <div style="padding-top: 1rem">
+                                <h:form class="app-form">
+        
+                                    <p:commandLink id="nazad" value="Log out" style="color: #1ba3ff;" action="#{loginController.logout()}" />
+           
+                                </h:form>
+                            </div>
+                            <br></br>
+                            <br></br>
+            </p:panel>
+                <br></br>
+                            <br></br>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        <script>
+            const second = 1000;
+        let countDown = 30;
+        let x = setInterval(function (){
+            let distance = countDown--;
+            document.getElementById("promena").height = distance*18;
+           
+            if(distance===0){
+                clearInterval(x);
+        }       
+        }, second);
+        
+        
+   
+
+        </script>
+        
+        
+        <div style="position: fixed; margin-left: 30.25%; width: 70%; min-height:100%; min-width: 800px; ">
+            
+            <p:panel style="min-width: 200px; background-color: rgba(6,6,18,0.5); border: none; padding: 50px">
+               
+                
+                <p:graphicImage url="resources/timer_okvir.png" width="20px" height="540px" style=" filter: opacity(0.7); position: fixed; margin-top: 50px "/>
+                <p:graphicImage id="promena" url="resources/timer_okvir.png" width="20px" height="540px" style=" position: fixed; filter: invert(100%) opacity(0.5);  margin-top: 50px "/>
+                <h:form style="margin: auto;">
+                <p:panelGrid styleClass="ui-panelgrid-blank ui-fluid" style="padding: 10px; width: 100%; margin-top: 40px" >
+                              
+                    <p:row><p:column colspan="7"/></p:row>
+                    <p:row><p:column colspan="7"/></p:row>
+                                
+                    <p:row>
+                        <p:column colspan="3"></p:column>
+                        <p:column colspan="3" style="color: white; font-size: xx-large; font-weight: bolder">A N A G R A M </p:column>
+                        <p:column></p:column>
+                    </p:row>
+                    
+                    <p:row><p:column colspan="4"/></p:row>
+                    <p:row><p:column colspan="4"/></p:row>
+                    <p:row><p:column colspan="4"/></p:row>
+                    <p:row><p:column colspan="4"/></p:row>
+                    <p:row style="padding-top: 100px">
+                        <p:column style="color: white;padding-right: 20px; text-align: right; font-size: larger;">
+                            <p:outputLabel value="Zagonetka:"></p:outputLabel>
+                        </p:column>
+                        
+                        <p:column colspan="3" style="color: white; font-size: larger;">
+                            <p:outputLabel value="#{anagramController.zagonetka}"></p:outputLabel>
+                        </p:column>
+                    </p:row>
+                    <p:row><p:column colspan="4"/></p:row>
+                    <p:row><p:column colspan="4"/></p:row>
+                    <p:row><p:column colspan="4"/></p:row>
+                    
+                    <p:row>
+                        <p:column style="color: white; padding-right: 20px; text-align: right;font-size: larger;">
+                            <p:outputLabel value="Vaše rešenje:"></p:outputLabel>
+                        </p:column>
+                        
+                        <p:column colspan="3" style="color: white; font-size: larger;">
+                            <p:inputText value="#{anagramController.resenje}" id="rez" disabled="#{counter.dis()}"
+                                         style="padding: 10px; border-radius: 4px; size: 130px;">
+                                
+                            </p:inputText>
+                            <p:poll interval="30" listener="#{counter.inc()}" update="rez" />
+                                         
+                            
+                        </p:column>
+                    </p:row>
+                           
+                    
+                    
+                    
+                </p:panelGrid>
+                   
+                    <br></br>
+                    <br></br>
+                         
+                    <p:commandButton value="Potvrdi" id="btn" action="#{anagramController.potvrdi()}" ajax="true"
+                                     style="background-color: #206491; margin-left: 55%; width: 20%; text-align: center; color: #FFFFFF; margin-top: 120px; border: none;"/>
+                    
+                    
+                </h:form>           
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                
+            </p:panel>
+        </div>
+         <br></br>
+         
+       
+
+    </h:body>
+</html>
+

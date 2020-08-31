@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+          
+      xmlns:pm="http://primefaces.org/mobile"
+     >
+    
+    <h:head>
+        <title>ETF Kviskoteka</title>
+        <h:outputStylesheet library="css" name="dizajn.css"/>
+    </h:head>
+    
+    <h:body style="background-image: url(resources/background.jpg); filter: brightness(105%) contrast(105%); background-position: 0% 0%; background-repeat: no-repeat; background-attachment: fixed">
+        
+       
+        <p:growl showDetail="true" sticky="true" />
+
+        
+
+        <div style="padding-top: 1rem;" >
+            
+           
+            <img src="resources/logo2.png" id="logo" width="30%" style="margin-left: 35%; filter: brightness(150%) grayscale(20%) contrast(140%);" alt="logo1"/>
+       
+            <p:panel class="app-panel">
+            <h:form class="app-form">
+                    
+                        
+                        <div style="color: white; font-size: large; font-family: inherit; font-weight: bold; margin-top: 10px; margin-bottom: 10px">Account Login</div>
+                        
+                        
+                        <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank ui-fluid" >
+                            
+                            <hr style="border-style: inset; border-width: 0.5px; "> </hr>
+                            <p:outputLabel value="Username:"  style="color: white"/>
+                            
+                            <p:inputText id="usernameInput" value="#{loginController.username}"
+                                         required="true" requiredMessage="Username is required."/>
+
+                            <p:outputLabel value="Password:" style="color: white"/>
+                            
+                            <p:password id="passwordInput" value="#{loginController.password}"
+                                        required="true" requiredMessage="Password is required."/>
+                           
+                            </p:panelGrid>
+                            
+                            <p:commandButton style="background-color: #206491; margin-left: 65%; width: 35%; text-align: center; color: #FFFFFF; margin-top: 20px; border: none;" 
+                                             value="Log in"  action="#{loginController.login()}" ajax="false" update="@form"/>
+                            
+                            
+            </h:form> 
+            
+            <br></br>
+                            <hr style="border-style: inset; border-width: 0.5px; color: grey"></hr>
+                            <br></br>
+                            <div style="padding-top: 1rem">
+                                <h:form class="app-form">
+        
+                                <p:outputLabel value="Don't have an account? " style="color: white"></p:outputLabel>
+                                <p:commandLink value="Sign up now!" style="color: #1ba3ff;" action="registracija?faces-redirect=true" />
+                            
+                                </h:form>
+                            </div>
+                       
+                           
+                            <div style="padding-top: 1rem">
+                                <h:form class="app-form">
+        
+                                <p:outputLabel value="Forgot your " style="color: white"></p:outputLabel>
+                                <p:commandLink value="password?" style="color: #1ba3ff;" action="zaboravljenaloznika?faces-redirect=true" />
+           
+                                </h:form>
+                            </div>
+                            <br></br>
+                            </p:panel>
+          </div>
+       
+        <br></br>
+        <br></br>
+        <div style="padding-top: 1rem">
+            <h:form class="app-form">
+                <p:commandLink value="Change your password?" action="promenalozinke?faces-redirect=true" style="color: #FFFFFF;"/>
+            </h:form>
+        </div>
+
+        <div style="padding-top: 1rem">
+            <h:form class="app-form">
+                <p:commandLink value="Or proceed as a guest!" action="rangliste?faces-redirect=true" style="color: #FFFFFF;"/>
+            </h:form>
+        </div>
+<br></br>
+<br></br>
+<br></br>
+       
+
+    </h:body>
+</html>
+

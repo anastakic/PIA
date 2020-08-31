@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+        <title>Igra VESANJA</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="dizajn.css"/>
+    </h:head>
+    
+       
+    
+    
+    <h:body style="background-image: url(resources/background.jpg); filter: brightness(105%) contrast(105%); background-position: 0% 0%; background-repeat: no-repeat; background-attachment: fixed">
+        
+        
+        <p:growl showDetail="true" sticky="true"/>
+       
+        <div style="position: fixed;  margin-left: 0%; width: 30%">
+            <img src="resources/logo2.png" width="70%" style="filter: brightness(150%) grayscale(40%) contrast(140%); min-width: 200px; margin-top: 15px; margin-left: 15%" alt="logo1"/>
+            <br></br>    
+            <br></br>  
+                    
+            <p:panel style="min-width: 200px; background-color: rgba(6,6,18,0.6); border: none">
+                
+                <h:form class="app-form">
+                    
+                    <p:outputLabel value="Account: " style="color: white; font-size: large; font-family: inherit; font-weight: bold; margin-top: 10px; margin-bottom: 10px"></p:outputLabel>
+                    <p:outputLabel value="#{user.username}" style="color: #5188b8; -webkit-text-stroke: 0.5px white;
+                                   font-size: xx-large; font-family: inherit; font-weight: bolder; margin-top: 10px; margin-bottom: 10px; margin-left: 10px;"></p:outputLabel>
+                    <br></br>    
+                    
+                        <hr style="border-style: inset; border-width: 0.5px; "> </hr>
+                            
+                       
+                        <div style="text-align: right">
+                            <p:outputLabel value="#{user.ime} #{user.prezime}"  style="color: white; font-size: large; width: 100% "/>
+                        </div>    
+
+                            <hr style="border-style: inset; border-width: 0.5px; color: grey"></hr>
+                            
+                            <p:panelGrid styleClass="ui-panelgrid-blank ui-fluid" style="padding: 10px; width: 100%; background-color: rgba(3,3,15,0.5);" >
+                                    
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="3" style="color: white; font-size: large; font-weight: bold">Današnji rezultat:</p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                
+                                
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra ANAGRAM</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{anagramController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                    
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">Igra MOJ BROJ</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{mojBrojController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra VEŠANJA</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{petxpetController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">Igra ZANIMLJIVA GEOGRAFIJA</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{zanimljivaGeografijaController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra PEHAR</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{peharController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">U K U P N O:</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{mojBrojController.brPoenaPosleMojBroj}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                
+                            
+                            </p:panelGrid>
+                            
+                </h:form> 
+            
+                            <br></br>
+                            <br></br>
+                            
+                            <div style="padding-top: 1rem">
+                                <h:form class="app-form">
+        
+                                    <p:commandLink id="nazad" value="Log out" style="color: #1ba3ff;" action="#{loginController.logout()}" />
+           
+                                </h:form>
+                            </div>
+                            <br></br>
+                            <br></br>
+            </p:panel>
+                <br></br>
+                            <br></br>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+        <div style="position: fixed; margin-left: 30.25%; width: 70%; min-height:100%; min-width: 900px; ">
+            
+            <p:panel style="min-width: 200px; background-color: rgba(6,6,18,0.5); border: none; padding-top: 50px; padding-left: 15px;">
+               
+                
+                
+                <h:form id="forma" style="margin-top: 50px; min-height: 560px; min-width: 830px">
+                    <p:outputLabel style="color: white; font-size: xx-large;padding-left: 280px; font-weight: bolder">I G R A &ensp; V E Š A NJ A</p:outputLabel>
+                    
+                    <p:outputPanel style="height: 270px;">
+                        <!-- PROSTOR ZA ANIMACIJU -->
+                        <div layout="block" id="game">
+                            <div class="player">
+                                <div class="playerModel">
+                                    <p:outputPanel class="head" rendered="#{petxpetController.greska1}"></p:outputPanel>
+                                    <p:outputPanel class="trup" rendered="#{petxpetController.greska2}"></p:outputPanel>
+                                    
+                                    <p:outputPanel class="body" rendered="#{petxpetController.greska3}"></p:outputPanel>
+                                    <p:outputPanel class="foot" rendered="#{petxpetController.greska4}"></p:outputPanel>
+                                </div>
+                            </div>
+                            <div class="stang3"></div>
+                            <div class="stang2"></div>
+                            <div class="stang"></div>
+                            <div class="ground"></div>
+                        </div>
+                        
+                    </p:outputPanel>
+                    
+                    
+                    
+                    
+                    
+                    <p:dataGrid  style=" background-color: rgba(255,255,255,0.7); margin-left:  calc(50% - #{petxpetController.duzina}*17px );margin-right: calc(50% - #{petxpetController.duzina}*17px ); width: calc(#{petxpetController.duzina}*35px)" value="#{petxpetController.trazenaRec}" var="col" columns="#{petxpetController.duzina}">
+                        <h:outputText style="min-width: 35px; text-align: center; font-size: x-large; font-weight: bolder" value="#{col}"/>
+                                    
+                    </p:dataGrid>
+                    
+                    <p:dataGrid id="slovaGore" value="#{petxpetController.slovaGore}" var="slovo" style="width: 100%; padding-left: 25px; margin-top: 10px" columns="15">
+                        <p:commandButton style="width: 47px; text-align: center" value="#{slovo}" disabled="#{petxpetController.disable(slovo)}" update="@this">
+                            <p:ajax event="click" listener="#{petxpetController.pritisnutoSlovo(slovo)}" update="forma" ></p:ajax>
+                        </p:commandButton>
+                        
+                    </p:dataGrid>
+ 
+                    <p:dataGrid id="slovaDole" value="#{petxpetController.slovaDole}" var="slovo" style="width: 100%; padding-left: 25px;" columns="15">
+                        <p:commandButton style="width: 47px;text-align: center" value="#{slovo}" disabled="#{petxpetController.disable(slovo)}" update="@this">
+                            <p:ajax event="click" listener="#{petxpetController.pritisnutoSlovo(slovo)}" update="forma" ></p:ajax>
+                        </p:commandButton>
+                            
+                    </p:dataGrid>
+ 
+                    
+                    <p:commandButton value="Potvrdi" id="btn" disabled="#{not petxpetController.disable(x)}"
+                                     action="#{petxpetController.potvrdi()}"
+                                     style="background-color: #206491; margin-left: 37%; width: 26%; 
+                                     text-align: center; color: #FFFFFF; margin-top: 20px; border: none;"/>
+                    
+                    
+                </h:form>           
+                       
+                
+            </p:panel>
+        </div>
+       
+       
+
+    </h:body>
+</html>
+

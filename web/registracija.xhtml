@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Registracija</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="dizajn.css"/>
+    </h:head>
+    <h:body style="background-image: url(resources/background.jpg); filter: brightness(105%) contrast(105%); background-position: 0% 0%; background-repeat: no-repeat; background-attachment: fixed">
+        
+         <p:growl showDetail="true" sticky="true" />
+
+        <div style="padding-top: 1rem">
+            <img src="resources/logo2.png" id="logo" width="30%" style="margin-left: 35%; filter: brightness(150%) grayscale(20%) contrast(140%);" alt="logo1"/>
+       
+                
+                <p:panel header="Registration Form" class="app-panell">
+                    <h:form id="RegistrationForm" class="app-formm">
+            
+                    <br></br>
+                    <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid">
+                        
+                        <p:outputLabel value="Username:" style="color: white"/>
+                        <p:inputText id="usernameInput" value="#{registrationController.username}"
+                                     required="true" requiredMessage="Korisničko ime je obavezno."
+                                     placeholder="username" type=""/>
+
+                        <p:outputLabel value="Password:" style="color: white" />
+                        <p:password id="passwordInput" value="#{registrationController.password}"
+                                    required="true" requiredMessage="Lozinka je obavezna."
+                                    feedback="true" promptLabel="Jačina lozinke"
+                                    weakLabel="Slabo" goodLabel="Dobro" strongLabel="Jako" inline="true"
+                                    match="confirmPasswordInput"/>
+
+                        <p:outputLabel  value="Confirm password:" style="color: white"/>
+                        <p:password id="confirmPasswordInput" value="#{registrationController.passwordPotvrda}"
+                                    required="true" requiredMessage="Potvrda lozinke je obavezna."/>
+
+                        <p:outputLabel value="Ime:" style="color: white"/>
+                        <p:inputText id="imeInput" value="#{registrationController.ime}"
+                                     required="true" requiredMessage="Ime je obavezno."
+                                     placeholder="ime"/>
+
+                        <p:outputLabel value="Prezime:" style="color: white"/>
+                        <p:inputText id="prezimeInput" value="#{registrationController.prezime}"
+                                     required="true" requiredMessage="Prezime je obavezno."
+                                     placeholder="prezime"/>
+
+                        <p:outputLabel value="Zanimanje:" style="color: white"/>
+                        <p:inputText id="zanimanjeInput" value="#{registrationController.zanimanje}"
+                                     required="true" requiredMessage="Phone number is required."
+                                     placeholder="zanimanje"/>
+
+                        <p:outputLabel value="JMBG:" style="color: white"/>
+                        <p:inputText id="jmbgInput" value="#{registrationController.jmbg}"
+                                     required="true" requiredMessage="JMBG je obavezan."
+                                     placeholder="jmbg"/>
+
+                        
+                        <p:outputLabel value="E-mail:" style="color: white"/>
+                        <p:inputText id="emailInput" value="#{registrationController.email}"
+                                     required="true" requiredMessage="E-mail je obavezan." 
+                                     placeholder="email">
+                            <f:validateRegex 
+                            pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                        </p:inputText>
+                        
+                        <p:outputLabel value="Pol:" style="color: white" />
+                        <p:selectOneRadio id="polInput" value="#{registrationController.pol}" style="color: white">
+                            <f:selectItem itemValue="zenski" itemLabel="&#9792;" />
+                            <f:selectItem itemValue="muski" itemLabel="&#9794;"/>
+                        </p:selectOneRadio>
+                        
+                        
+                        <p:outputLabel value="Izaberite tajno pitanje:" style="color: white"/>
+                        <p:selectOneMenu id="pitanjaInput" value="#{registrationController.pitanje}" style="color: white">
+                            <f:selectItem itemValue="Koja je Vaša omiljena životinja?" itemLabel="Koja je Vaša omiljena životinja?"/>
+                            <f:selectItem itemValue="Koji je Vaš omiljeni film?" itemLabel="Koji je Vaš omiljeni film?"/>
+                            <f:selectItem itemValue="Koja je Vaša omiljena boja?" itemLabel="Koja je Vaša omiljena boja?"/>
+                            <f:selectItem itemValue="Koje je srednje ime Vaše majke?" itemLabel="Koje je srednje ime Vaše majke?"/>
+                            <f:selectItem itemValue="Kako se zove Vaše učiteljica?" itemLabel="Kako se zove Vaše učiteljica?"/>
+                            <f:selectItem itemValue="Koje je ime ulice u kojoj ste odrasli?" itemLabel="Koje je ime ulice u kojoj ste odrasli?"/>
+                            <f:selectItem itemValue="Koje je Vaše omiljeno jelo?" itemLabel="Koje je Vaše omiljeno jelo?"/>
+                            <f:selectItem itemValue="Kako se zove Vaš omiljeni pevač?" itemLabel="Kako se zove Vaš omiljeni pevač?"/>
+                            <f:selectItem itemValue="Koji je Vaš omiljeni web browser?" itemLabel="Koji je Vaš omiljeni web browser?"/>
+                            <f:selectItem itemValue="Koja je Vaša omiljena društvena mreža?" itemLabel="Koja je Vaša omiljena društvena mreža?"/>
+                        </p:selectOneMenu>
+                        
+                        <p:outputLabel value="Odgovor na tajno pitanje:" style="color: white"/>
+                        <p:inputText id="odgovorInput" value="#{registrationController.odgovor}"
+                                     required="true" requiredMessage="Ovo polje je obavezno."/>
+                        
+                        <p:outputLabel value="Registruj se kao: " style="color: white"/>
+                        <p:selectOneMenu id="userTypeInput" value="#{registrationController.userType}">
+                            <f:selectItem itemValue="takmicar" itemLabel="Takmičar"/>
+                            <f:selectItem itemValue="administrator" itemLabel="Administrator"/>
+                            <f:selectItem itemValue="supervizor" itemLabel="Supervizor"/>
+                        </p:selectOneMenu>
+                        
+                        </p:panelGrid>
+                   
+                    <br></br>
+                    <p:fileUpload fileUploadListener="#{profilePicture.handleFileUpload}" mode="advanced" dragDropSupport="true"
+                         label="Dodaj profilnu fotografiju" auto="90000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+                    
+                    <p:commandButton value="Sign Up" icon="fa fa-user" ajax="false" action="#{registrationController.registracija()}" 
+                                     update="@form" style="background-color: #206491; margin-left: 65%; width: 35%; text-align: center; color: #FFFFFF; margin-top: 20px; border: none;" />
+                </h:form>
+                    
+                    <h:form>
+                  <p:commandButton value="Nazad" icon="fa fa-user" ajax="false" action="index?faces-redirect=true" 
+                                     update="@form" style="background-color: #206491; margin-left: 65%; width: 35%; text-align: center; color: #FFFFFF; margin-top: 20px; border: none;" />
+                </h:form>    
+                <br></br>
+                <br></br>
+                </p:panel>
+            
+        </div>
+        
+    </h:body>
+</html>
+

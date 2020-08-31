@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+        <title>Igra PEHAR</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="dizajn.css"/>
+    </h:head>
+      
+    <h:body style="background-image: url(resources/background.jpg); filter: brightness(105%) contrast(105%); background-position: 0% 0%; background-repeat: no-repeat; background-attachment: fixed">
+        
+        
+        <p:growl showDetail="true" sticky="true"/>
+        <p:outputPanel id="ekran">
+        <div style="position: fixed;  margin-left: 0%; width: 30%">
+            <img src="resources/logo2.png" width="70%" style="filter: brightness(150%) grayscale(40%) contrast(140%); min-width: 200px; margin-top: 15px; margin-left: 15%" alt="logo1"/>
+            <br></br>    
+            <br></br>  
+                    
+            <p:panel style="min-width: 200px; background-color: rgba(6,6,18,0.6); border: none">
+                
+                <h:form class="app-form">
+                    
+                    <p:outputLabel value="Account: " style="color: white; font-size: large; font-family: inherit; font-weight: bold; margin-top: 10px; margin-bottom: 10px"></p:outputLabel>
+                    <p:outputLabel value="#{user.username}" style="color: #5188b8; -webkit-text-stroke: 0.5px white;
+                                   font-size: xx-large; font-family: inherit; font-weight: bolder; margin-top: 10px; margin-bottom: 10px; margin-left: 10px;"></p:outputLabel>
+                    <br></br>    
+                    
+                        <hr style="border-style: inset; border-width: 0.5px; "> </hr>
+                            
+                       
+                        <div style="text-align: right">
+                            <p:outputLabel value="#{user.ime} #{user.prezime}"  style="color: white; font-size: large; width: 100% "/>
+                        </div>    
+
+                            <hr style="border-style: inset; border-width: 0.5px; color: grey"></hr>
+                            
+                            <p:panelGrid styleClass="ui-panelgrid-blank ui-fluid" style="padding: 10px; width: 100%; background-color: rgba(3,3,15,0.5);" >
+                                    
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="3" style="color: white; font-size: large; font-weight: bold">Današnji rezultat:</p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                
+                                
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra ANAGRAM</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{anagramController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                    
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">Igra MOJ BROJ</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{mojBrojController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra VEŠANJA</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{petxpetController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">Igra ZANIMLJIVA GEOGRAFIJA</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{zanimljivaGeografijaController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row>
+                                    <p:column colspan="2" style="color: white">Igra PEHAR</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{peharController.brPoena}"/>
+                                    </p:column>
+                                </p:row>
+                                
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%">
+                                    <p:column colspan="2" style="color: white">U K U P N O:</p:column>
+                                    <p:column style="color: white">
+                                        <p:outputLabel value="#{peharController.brPoenaPoslePehar}"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                <p:row style="background: rgba(3,3,15,0.4) fixed no-repeat 0% 0%"><p:column colspan="3" style="color: white"></p:column></p:row>
+                                
+                            
+                            </p:panelGrid>
+                            
+                </h:form> 
+            
+                            <br></br>
+                            <br></br>
+                            
+                            <div style="padding-top: 1rem">
+                                <h:form class="app-form">
+        
+                                    <p:commandLink id="nazad" value="Log out" style="color: #1ba3ff;" action="#{loginController.logout()}" />
+           
+                                </h:form>
+                            </div>
+                            <br></br>
+                            <br></br>
+            </p:panel>
+                <br></br>
+                            <br></br>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+       
+        
+        
+        
+        <div style="position: fixed; margin-left: 30.25%; width: 70%; min-height:100%; min-width: 900px; ">
+            
+            <p:panel id="panelpehar" style="min-width: 200px; background-color: rgba(6,6,18,0.5); border: none;padding-left: 15px;">
+               
+                
+                 
+                <h:form id="forma" style="margin-top: 50px; min-height: 560px; min-width: 830px; padding-left: 50px;">
+                    <p:outputLabel style="color: white; font-size: xx-large;padding-left: 280px; font-weight: bolder">P E H A R</p:outputLabel>
+                    <br/><br/>
+                  
+               
+                    
+                    
+                    <p:panelGrid id="pojmovi" styleClass="ui-panelgrid-blank ui-fluid" style="text-align: center; margin-top: 50px; font-size: larger" columns="5">
+                        
+                        <p:outputLabel></p:outputLabel>
+                        <p:outputLabel></p:outputLabel>
+                        <p:outputLabel id="pehartimer" value="#{peharController.timerValue}"></p:outputLabel>
+                        <p:poll interval="1" listener="#{peharController.timer()}" update="pehartimer"></p:poll>
+                        <p:outputLabel></p:outputLabel>
+                        
+                        <p:outputLabel value="#{peharController.id1}" style="color: white"  ></p:outputLabel>
+                        <p:outputLabel value="#{peharController.pitanje1}" style="color: #{peharController.tacno1 ? 'white' : 'red' }"></p:outputLabel>
+                        <p:inputText value="#{peharController.odgovor1}" style="color: #{peharController.tacno1 ? 'black' : 'red' }; font-weight: bolder; width: 250px; text-align: center" disabled="#{peharController.dis1}"></p:inputText>
+                        <p:commandButton value="&#10004;" action="#{peharController.datOdgovor1()}" disabled="#{peharController.dis1}" update="ekran"></p:commandButton>
+                        <p:poll interval="30" listener="#{peharController.datOdgovor1()}" update="ekran"></p:poll>
+                        
+                        <p:outputLabel value="#{peharController.id2}" style="color: white"></p:outputLabel>
+                        <p:outputLabel value="#{peharController.pitanje2}" style="color: #{peharController.tacno2 ? 'white' : 'red' }"></p:outputLabel>
+                        <p:inputText value="#{peharController.odgovor2}" style="color: #{peharController.tacno2 ? 'black' : 'red' }; font-weight: bolder; width: 225px; text-align: center"  disabled="#{peharController.dis2}"></p:inputText>
+                        <p:commandButton value="&#10004;" action="#{peharController.datOdgovor2()}" disabled="#{peharController.dis2}" update="ekran"></p:commandButton>
+                        <p:poll interval="30" listener="#{peharController.datOdgovor2()}" autoStart="#{not peharController.dis2}" update="ekran"></p:poll>
+                        
+                        
+                        <p:outputLabel value="#{peharController.id3}" style="color: white"></p:outputLabel>
+                        <p:outputLabel value="#{peharController.pitanje3}" style="color: #{peharController.tacno3 ? 'white' : 'red' }"></p:outputLabel>
+                        <p:inputText value="#{peharController.odgovor3}" style="color: #{peharController.tacno3 ? 'black' : 'red' }; font-weight: bolder; width: 200px; text-align: center"  disabled="#{peharController.dis3}"></p:inputText>
+                        <p:commandButton value="&#10004;" action="#{peharController.datOdgovor3()}" disabled="#{peharController.dis3}" update="ekran"></p:commandButton>
+                        <p:poll interval="30" listener="#{peharController.datOdgovor3()}" autoStart="#{not peharController.dis3}"  update="ekran"></p:poll>
+                        
+
+                        <p:outputLabel value="#{peharController.id4}" style="color: white"></p:outputLabel>
+                        <p:outputLabel value="#{peharController.pitanje4}" style="color: #{peharController.tacno4 ? 'white' : 'red' }"></p:outputLabel>
+                        <p:inputText value="#{peharController.odgovor4}" style="color: #{peharController.tacno4 ? 'black' : 'red' }; font-weight: bolder; width: 175px; text-align: center" disabled="#{peharController.dis4}"></p:inputText>
+                        <p:commandButton value="&#10004;" action="#{peharController.datOdgovor4()}" disabled="#{peharController.dis4}" update="ekran"></p:commandButton>
+                        <p:poll interval="30" listener="#{peharController.datOdgovor4()}" autoStart="#{not peharController.dis4}"   update="ekran"></p:poll>
+                        
+                      
+                        <p:outputLabel value="#{peharController.id5}" style="color: white"></p:outputLabel>
+                        <p:outputLabel value="#{peharController.pitanje5}" style="color: #{peharController.tacno5 ? 'white' : 'red' }"></p:outputLabel>
+                        <p:inputText value="#{peharController.odgovor5}" style="color: #{peharController.tacno5 ? 'black' : 'red' }; font-weight: bolder; width: 150px; text-align: center" disabled="#{peharController.dis5}"></p:inputText>
+                        <p:commandButton value="&#10004;" action="#{peharController.datOdgovor5()}" disabled="#{peharController.dis5}" update="ekran"></p:commandButton>
+                        <p:poll interval="30" listener="#{peharController.datOdgovor5()}" autoStart="#{not peharController.dis5}"   update="ekran"></p:poll>
+                        
+
+                        <p:outputLabel value="#{peharController.id6}" style="color: white"></p:outputLabel>
+                        <p:outputLabel value="#{peharController.pitanje6}" style="color: #{peharController.tacno6 ? 'white' : 'red' }"></p:outputLabel>
+                        <p:inputText value="#{peharController.odgovor6}" style="color: #{peharController.tacno6 ? 'black' : 'red' }; font-weight: bolder; width: 125px;text-align: center " disabled="#{peharController.dis6}"></p:inputText>
+                        <p:commandButton value="&#10004;" action="#{peharController.datOdgovor6()}" disabled="#{peharController.dis6}" update="ekran"></p:commandButton>
+                        <p:poll interval="30" listener="#{peharController.datOdgovor6()}" autoStart="#{not peharController.dis6}"   update="ekran"></p:poll>
+                        
+
+                        <p:outputLabel value="#{peharController.id7}" style="color: white"></p:outputLabel>
+                        <p:outputLabel value="#{peharController.pitanje7}" style="color: #{peharController.tacno7 ? 'white' : 'red' }"></p:outputLabel>
+                        <p:inputText value="#{peharController.odgovor7}" style="color: #{peharController.tacno7 ? 'black' : 'red' }; font-weight: bolder; width: 100px; text-align: center" disabled="#{peharController.dis7}"></p:inputText>
+                        <p:commandButton value="&#10004;" action="#{peharController.datOdgovor7()}" disabled="#{peharController.dis7}" update="ekran"></p:commandButton>
+                        <p:poll interval="30" listener="#{peharController.datOdgovor7()}"  autoStart="#{not peharController.dis7}"  update="ekran"></p:poll>
+                        
+
+                        <p:outputLabel value="#{peharController.id8}" style="color: white"></p:outputLabel>
+                        <p:outputLabel value="#{peharController.pitanje8}" style="color: #{peharController.tacno8 ? 'white' : 'red' }"></p:outputLabel>
+                        <p:inputText value="#{peharController.odgovor8}" style="color: #{peharController.tacno8 ? 'black' : 'red' }; font-weight: bolder; width: 125px;text-align: center" disabled="#{peharController.dis8}"></p:inputText>
+                        <p:commandButton value="&#10004;" action="#{peharController.datOdgovor8()}" disabled="#{peharController.dis8}" update="ekran"></p:commandButton>
+                        <p:poll interval="30" listener="#{peharController.datOdgovor8()}"  autoStart="#{not peharController.dis8}"  update="ekran"></p:poll>
+                        
+
+                        <p:outputLabel value="#{peharController.id9}" style="color: white"></p:outputLabel>
+                        <p:outputLabel value="#{peharController.pitanje9}" style="color: #{peharController.tacno9 ? 'white' : 'red' }"></p:outputLabel>
+                        <p:inputText value="#{peharController.odgovor9}" style="color: #{peharController.tacno9 ? 'black' : 'red' }; font-weight: bolder; width: 150px;text-align: center" disabled="#{peharController.dis9}"></p:inputText>
+                        <p:commandButton value="&#10004;" action="#{peharController.datOdgovor9()}" disabled="#{peharController.dis9}" update="ekran"></p:commandButton>
+                        <p:poll interval="30" listener="#{peharController.datOdgovor9()}"  autoStart="#{not peharController.dis9}"  update="ekran"></p:poll>
+                        
+
+                        <p:outputLabel value="#{peharController.id10}" style="color: white"></p:outputLabel>
+                        <p:outputLabel value="#{peharController.pitanje10}" style="color: #{peharController.tacno10 ? 'white' : 'red' }"></p:outputLabel>
+                        <p:inputText value="#{peharController.odgovor10}" style="color: #{peharController.tacno10 ? 'black' : 'red' }; font-weight: bolder; width: 175px;text-align: center" disabled="#{peharController.dis10}"></p:inputText>
+                        <p:commandButton value="&#10004;" action="#{peharController.datOdgovor10()}" disabled="#{peharController.dis10}" update="ekran"></p:commandButton>
+                        <p:poll interval="30" listener="#{peharController.datOdgovor10()}"  autoStart="#{not peharController.dis10}"  update="ekran"></p:poll>
+                        
+
+                        <p:outputLabel value="#{peharController.id11}" style="color: white"></p:outputLabel>
+                        <p:outputLabel value="#{peharController.pitanje11}" style="color: #{peharController.tacno11 ? 'white' : 'red' }"></p:outputLabel>
+                        <p:inputText value="#{peharController.odgovor11}" style="color: #{peharController.tacno11 ? 'black' : 'red' }; font-weight: bolder; width: 200px;text-align: center" disabled="#{peharController.dis11}"></p:inputText>
+                        <p:commandButton value="&#10004;" action="#{peharController.datOdgovor11()}" disabled="#{peharController.dis11}" update="ekran"></p:commandButton>
+                        <p:poll interval="30" listener="#{peharController.datOdgovor11()}"  autoStart="#{not peharController.dis11}"  update="ekran"></p:poll>
+                        
+
+                        <p:outputLabel value="#{peharController.id12}" style="color: white"></p:outputLabel>
+                        <p:outputLabel value="#{peharController.pitanje12}" style="color: #{peharController.tacno12 ? 'white' : 'red' }"></p:outputLabel>
+                        <p:inputText value="#{peharController.odgovor12}" style="color: #{peharController.tacno12 ? 'black' : 'red' }; font-weight: bolder; width: 225px;text-align: center" disabled="#{peharController.dis12}"></p:inputText>
+                        <p:commandButton value="&#10004;" action="#{peharController.datOdgovor12()}" disabled="#{peharController.dis12}" update="ekran"></p:commandButton>
+                        <p:poll interval="30" listener="#{peharController.datOdgovor12()}"  autoStart="#{not peharController.dis12}"  update="ekran"></p:poll>
+                        
+
+                        <p:outputLabel value="#{peharController.id13}" style="color: white"></p:outputLabel>
+                        <p:outputLabel value="#{peharController.pitanje13}" style="color: #{peharController.tacno13 ? 'white' : 'red' }"></p:outputLabel>
+                        <p:inputText value="#{peharController.odgovor13}" style="color: #{peharController.tacno13 ? 'black' : 'red' }; font-weight: bolder; width: 250px;text-align: center" disabled="#{peharController.dis13}"></p:inputText>
+                        <p:commandButton value="&#10004;" action="#{peharController.datOdgovor13()}" disabled="#{peharController.dis13}" update="ekran"></p:commandButton>
+                        <p:poll interval="30"  listener="#{peharController.datOdgovor13()}"  autoStart="#{not peharController.dis13}"  update="ekran"></p:poll>
+                        
+                        
+                        
+                    </p:panelGrid>
+                    <br></br>
+                    
+                    <p:commandButton value="Kraj igre" disabled="#{peharController.krajIgreDis}" action="#{peharController.krajIgre()}"></p:commandButton>
+                     
+                    <br/>
+                    
+                    
+                </h:form>           
+                   
+                
+            </p:panel>
+        </div>
+       
+       </p:outputPanel>
+
+    </h:body>
+</html>
+

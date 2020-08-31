@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Zaboravljena lozinka</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="dizajn.css"/>
+    </h:head>
+    <h:body style="background-image: url(resources/background.jpg); filter: brightness(105%) contrast(105%); background-position: 0% 0%; background-repeat: no-repeat; background-attachment: fixed">
+        
+        <p:growl showDetail="true" sticky="true" />
+
+        <div style="padding-top: 1rem">
+            <img src="resources/logo2.png" id="logo" width="30%" style="margin-left: 35%; filter: brightness(150%) grayscale(20%) contrast(140%);" alt="logo1"/>
+       
+                
+                <p:panel header="Zaboravljena lozinka" class="app-panel">
+                    <h:form id="ZaboravljenaLozinka" class="app-form">
+            
+                    <br></br>
+                    <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid">
+                        
+                        <p:outputLabel value="Username:" style="color: white; width: 35%" />
+                        <p:inputText id="usernameInput" value="#{zaboravljenaLozinkaController.username}"
+                                     required="true" requiredMessage="Korisničko ime je obavezno."
+                                     placeholder="username"/>
+
+                        <p:outputLabel value="JMBG:" style="color: white; width: 35%" />
+                        <p:inputText id="jmbgInput" value="#{zaboravljenaLozinkaController.jmbg}"
+                                    required="true" placeholder="jmbg" requiredMessage="JMBG je obavezan." />
+
+                        
+                    </p:panelGrid>
+                    
+                    <p:commandButton value="Potvrdi" icon="fa fa-user" ajax="false" action="#{zaboravljenaLozinkaController.provera()}" 
+                                     update="@form" style="background-color: #206491; margin-left: 65%; width: 35%; text-align: center; color: #FFFFFF; margin-top: 20px; border: none;" />
+                </h:form>
+                    
+                <h:form class="app-formm">
+            
+                    <br></br>
+                    <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid">
+                        
+                        <p:outputLabel value="Vaše tajno pitanje:" rendered="#{zaboravljenaLozinkaController.provera}" style="color: white; width: 35%"/>
+                        <p:outputLabel value="#{zaboravljenaLozinkaController.pitanje}" rendered="#{zaboravljenaLozinkaController.provera}" style="color: white; font-weight: bolder"/>
+                        
+                        <p:outputLabel value="Odgovor na tajno pitanje:" rendered="#{zaboravljenaLozinkaController.provera}" style="color: white; width: 35%" />
+                        <p:inputText id="odgovorInput" value="#{zaboravljenaLozinkaController.odgovor}" 
+                                     rendered="#{zaboravljenaLozinkaController.provera}"
+                                     required="true" requiredMessage="Odgovor na tajno pitanje je obavezan."/>
+
+                        
+                    </p:panelGrid>
+                    
+                    <p:commandButton value="Potvrdi" icon="fa fa-user" ajax="false" rendered="#{zaboravljenaLozinkaController.provera}" 
+                                     action="#{zaboravljenaLozinkaController.provera2()}" 
+                                     update="@form" style="background-color: #206491; margin-left: 65%; width: 35%; text-align: center; color: #FFFFFF; margin-top: 20px; border: none;" />
+                </h:form>    
+                    
+                    
+                <h:form>
+                    <br></br>
+                    <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid">
+                    
+                      <p:outputLabel value="New password:" style="color: white; width: 35%" rendered="#{zaboravljenaLozinkaController.provera2}"  />
+                      <p:password id="newPasswordInput" value="#{zaboravljenaLozinkaController.newPassword}"
+                                    required="true" requiredMessage="Lozinka je obavezna."
+                                    feedback="true" promptLabel="Jačina lozinke"
+                                    weakLabel="Slabo" goodLabel="Dobro" strongLabel="Jako" inline="true"
+                                    match="confirmNewPasswordInput" 
+                                    rendered="#{zaboravljenaLozinkaController.provera2}"  />
+
+                        <p:outputLabel value="Confirm new password:" style="color: white; width: 35%"  rendered="#{zaboravljenaLozinkaController.provera2}"  />
+                        <p:password id="confirmNewPasswordInput" value="#{zaboravljenaLozinkaController.newPasswordPotvrda}"
+                                    required="true" requiredMessage="Potvrda lozinke je obavezna."
+                                    rendered="#{zaboravljenaLozinkaController.provera2}"  />
+  
+                    </p:panelGrid>    
+                    
+                    <p:commandButton value="Potvrdi" icon="fa fa-user" ajax="false" rendered="#{zaboravljenaLozinkaController.provera2}" 
+                                     action="#{zaboravljenaLozinkaController.promeniLozinku()}" 
+                                     update="@form" style="background-color: #206491; margin-left: 65%; width: 35%; text-align: center; color: #FFFFFF; margin-top: 20px; border: none;" />
+                </h:form>  
+                    
+                   
+                    <h:form>
+                  <p:commandButton value="Nazad" icon="fa fa-user" ajax="false" action="index?faces-redirect=true" 
+                                     update="@form" style="background-color: #206491; margin-left: 65%; width: 35%; text-align: center; color: #FFFFFF; margin-top: 20px; border: none;" />
+                </h:form>    
+              
+                  <br></br>
+                <br></br>
+                </p:panel>
+            
+                  <br></br>
+                <br></br>
+                
+            
+        </div>
+        
+    </h:body>
+</html>
+
